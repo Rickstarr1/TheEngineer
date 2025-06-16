@@ -4,215 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ILLCF Committee</title>
-    <style>
-        /* Fixed Navigation Tab */
-        .nav-tab {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #f1ede8;
-            color: white;
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            z-index: 1000;
-
-        }
-        .nav-logo {
-            height: 100px;
-            position: relative;
-            left: 20px;
-        }
-        .nav-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Adjust content padding to account for fixed nav */
-        body {
-            padding-top: 80px;
-        }
-        /* Password Screen Styles */
-        .password-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(42, 100, 150, 0.9);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            color: white;
-        }
-        /* Password Screen Styles */
-        .password-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #2a6496;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            color: white;
-        }
-        .password-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            color: #333;
-        }
-        .password-container input {
-            padding: 10px;
-            margin: 10px 0;
-            width: 200px;
-            border: 2px solid #2a6496;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .password-container button {
-            background-color: #2a6496;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .password-container button:hover {
-            background-color: #1d4b7a;
-        }
-        .error-message {
-            color: red;
-            margin-top: 10px;
-            height: 20px;
-            font-weight: bold;
-        }
-        .password-title {
-            color: #2a6496;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        /* Original Styles */
-        .content {
-            display: none; /* Hidden until password is entered */
-            padding-top: 100px; /* Slightly more than top-bar height to create space */
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        h1, h2 {
-            text-align: center;
-            color: #333;
-        }
-        h1 {
-            margin-top: 60px;
-            color: #2a6496;
-            border-bottom: 2px solid #2a6496;
-            padding-bottom: 10px;
-        }
-        h2 {
-            margin-top: 60px;
-            color: #2a6496;
-            border-bottom: 2px solid #2a6496;
-            padding-bottom: 10px;
-        }
-        .members-row {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .grid-item {
-            cursor: pointer;
-            transition: transform 0.3s;
-            width: 180px;
-        }
-        .grid-item:hover {
-            transform: scale(1.05);
-        }
-        .grid-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 500px;
-            text-align: center;
-        }
-        .modal-content img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
-        /* Password Screen Styles */
-        .password-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #2a6496;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="styless.css">
 </head>
-
-
-
 <body>
-    <!-- Fixed Navigation Tab -->
+    <!-- Combined Navigation -->
     <div class="nav-tab">
         <img src="ILLCFLogo.png" alt="ILLCF Logo" class="nav-logo">
+        <nav>
+                    <!-- Mobile Menu Button (hidden on desktop) -->
+            <button class="mobile-menu-toggle">☰</button>
+            
+            <ul class="nav-list">
+                <li><a href="https://www.illcfoundation.org">Home</a></li>
+                <li class="with-dropdown">
+                    <a href="#">Who we are<span class="dropdown-v"></span></a>
+                    <div class="dropdown-bubble">
+                        <a href="https://www.illcfoundation.org/about-us">Board</a>
+                        <a href="https://www.illcfoundation.org/team">Team</a>
+                    </div>
+                </li>
+                <li class="with-dropdown">
+                    <a href="#">What we do<span class="dropdown-v"></span></a>
+                    <div class="dropdown-bubble">
+                        <a href="https://www.illcfoundation.org/history">History</a>
+                        <a href="https://www.illcfoundation.org/next-generation-leadership">Next Generation</a>
+                        <a href="https://www.illcfoundation.org/board-leadership-development">Board Pláticas</a>
+                        <a href="https://www.illcfoundation.org/rapid-response-program">Rapid Response Program</a>
+                        <a href="https://www.illcfoundation.org/public-policy">Public Policy</a>
+                    </div>
+                </li>
+                <li><a href="https://www.illcfoundation.org/contact">Contact</a></li>
+                <li><a href="https://www.illcfoundation.org/events">Events</a></li>
+                <li class="scholarship-item">
+                    <a href="https://www.illcfoundation.org/scholarship-program" class="scholarship-btn">
+                        <span class="arrow">→</span>
+                        <span class="divider"></span>
+                        <div class="text-container">
+                            <span class="line1">APPLY FOR THE SOY EL FUTURO!</span>
+                            <span class="line2">SCHOLARSHIP</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
-    
     <!-- Password Screen -->
     <div class="password-screen" id="passwordScreen">
         <div class="password-container">
@@ -222,6 +58,27 @@
             <div class="error-message" id="errorMessage"></div>
         </div>
     </div>
+
+    <div class="search-container">
+        <select id="universityFilter">
+            <option value="">All Universities</option>
+            <!-- Options will be added dynamically -->
+        </select>
+        
+        <select id="majorFilter">
+            <option value="">All Majors</option>
+            <!-- Options will be added dynamically -->
+        </select>
+        
+        <select id="yearFilter">
+            <option value="">All Years</option>
+            <!-- Options will be added dynamically -->
+        </select>
+        
+        <button onclick="filterMembers()">Filter</button>
+        <button class="reset-btn" onclick="resetFilters()">Reset</button>
+    </div>
+    <p class="no-results" id="noResults">No members match your filters.</p>
 
     <!-- Original Content (Hidden until password is entered) -->
     <div class="content" id="content">
@@ -247,19 +104,19 @@
         <h2>Board</h2>
         <div class="members-row">
             <!-- 5 Juan profiles in one row -->
-            <div class="grid-item" onclick="openModal('Jaime Andrade Jr.', 'DePaul University', 'Accountacy','Stanford ILLCF@gmail.com', '40th District Representative', 'RJAjr.jpg')">
+            <div class="grid-item" onclick="openModal('Jaime Andrade Jr.', 'DePaul University', 'Accounting','Stanford ILLCF@gmail.com', '40th District Representative', 'RJAjr.jpg')">
                 <img src="RJAjr.jpg" alt="Jaime Andrade Jr.">
             </div>
-            <div class="grid-item" onclick="openModal('Omar Aquino', 'Loyola University', 'N/a','Stanford ILLCF@gmail.com', '2nd District Representative', 'ROA.jpg')">
+            <div class="grid-item" onclick="openModal('Omar Aquino', 'Loyola University Chicago', 'N/a','Stanford ILLCF@gmail.com', '2nd District Representative', 'ROA.jpg')">
                 <img src="ROA.jpg" alt="Omar Aquino">
             </div>
-            <div class="grid-item" onclick="openModal('Dagmara Avelar', 'University of Illinois Chicago', 'Urban, Community, & Regional Planning','Stanford ILLCF@gmail.com', '85th District Representative', 'RDA.jpg')">
+            <div class="grid-item" onclick="openModal('Dagmara Avelar', 'University of Illinois Chicago', 'Urban Planning','Stanford ILLCF@gmail.com', '85th District Representative', 'RDA.jpg')">
                 <img src="RDA.jpg" alt="Dagmara Avelar">
             </div>
             <div class="grid-item" onclick="openModal('Cristina Castro', 'Harvard University', 'Computer Science','Stanford ILLCF@gmail.com', '22nd District Senator', 'RCC.jpg')">
                 <img src="RCC.jpg" alt="Cristina Castro">
             </div>
-            <div class="grid-item" onclick="openModal('Fred Crespo', 'Loyola University', 'N/a','Stanford ILLCF@gmail.com', '44th District Representative', 'RFC.jpg')">
+            <div class="grid-item" onclick="openModal('Fred Crespo', 'Loyola University Chicago', 'N/a','Stanford ILLCF@gmail.com', '44th District Representative', 'RFC.jpg')">
                 <img src="RFC.jpg" alt="Fred Crespo">
             </div>
             <div class="grid-item" onclick="openModal('Eva-Dina Delgado', 'DePaul University', 'Law','Stanford ILLCF@gmail.com', '3rd District Representative', 'REDD.jpg')">
@@ -280,13 +137,13 @@
             <div class="grid-item" onclick="openModal('Lisa Hernandez', 'Harvard University', 'Computer Science','Stanford ILLCF@gmail.com', '2nd District Representative', 'RLH.jpg')">
                 <img src="RLH.jpg" alt="Lisa Hernandez">
             </div>
-            <div class="grid-item" onclick="openModal('Norma Hernandez', 'University of Illinois Chicago', 'Urban Planning & Policy','Stanford ILLCF@gmail.com', '77th District Representative', 'RNH.jpg')">
+            <div class="grid-item" onclick="openModal('Norma Hernandez', 'University of Illinois Chicago', 'Urban Planning','Stanford ILLCF@gmail.com', '77th District Representative', 'RNH.jpg')">
                 <img src="RNH.jpg" alt="Norma Hernandez">
             </div>
             <div class="grid-item" onclick="openModal('Lilian Jimenez', 'DePaul University', 'Public Interest Law','Stanford ILLCF@gmail.com', '4th District Representative', 'RLJ.jpg')">
                 <img src="RLJ.jpg" alt="Lilian Jimenez">
             </div>
-            <div class="grid-item" onclick="openModal('Javier Loera Cervantes', 'International Academy of Design & Technology-Chicago', 'Design & Visal Communications','Stanford ILLCF@gmail.com', '1st District Senator', 'RJLC.jpg')">
+            <div class="grid-item" onclick="openModal('Javier Loera Cervantes', 'International Academy of Design & Technology-Chicago', 'Design & Visual Communications','Stanford ILLCF@gmail.com', '1st District Senator', 'RJLC.jpg')">
                 <img src="RJLC.jpg" alt="Javier Loera Cervantes">
             </div>
             <div class="grid-item" onclick="openModal('Aarón M. Ortíz', 'Harvard University', 'Computer Science','Stanford ILLCF@gmail.com', '1st District Representative', 'RAO.jpg')">
@@ -300,25 +157,22 @@
             </div>
         </div>
 
-        <h2>Scholarship Recipients</h2>
+        <h2>2024 Scholarship Recipients</h2>
         <div class="members-row">
             <!-- 5 Eric profiles in first row -->
             <div class="grid-item" onclick="openModal('Eric Nieto Gonzalez', 'University of Illinois Urbana-Champaign', 'Electrical Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'ENG.jpg')">
                 <img src="ENG.jpg" alt="Eric Nieto Gonzalez">
             </div>
-            <div class="grid-item" onclick="openModal('Jesus Alquicira', 'University of Illinois Chicago', 'Civil Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'JA.jpeg')">
-                <img src="JA.jpeg" alt="Jesus Alquicira">
-            </div>
-            <div class="grid-item" onclick="openModal('Jair Alvarez', 'University of Illinois Chicago', 'Polotical Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'JA.jpg')">
+            <div class="grid-item" onclick="openModal('Jair Alvarez', 'University of Illinois Chicago', 'Political Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'JA.jpg')">
                 <img src="JA.jpg" alt="Jair Alvarez">
             </div>
-            <div class="grid-item" onclick="openModal('Corazon Rivera', 'Georgetown Washington University', 'Political Science & Government','Stanford ILLCF@gmail.com', 'ILLCF job', 'CR.jpg')">
+            <div class="grid-item" onclick="openModal('Corazon Rivera', 'George Washington University', 'Political Science & Government','Stanford ILLCF@gmail.com', 'ILLCF job', 'CR.jpg')">
                 <img src="CR.jpg" alt="Corazon Rivera">
             </div>
-            <div class="grid-item" onclick="openModal('Kayla Montes', 'University of Missouri-Columbia', 'Accounting','Stanford ILLCF@gmail.com', 'ILLCF job', 'KM.jpg')">
+            <div class="grid-item" onclick="openModal('Kayla Montes', 'University of Missouri-Columbia', 'Economics','Stanford ILLCF@gmail.com', 'ILLCF job', 'KM.jpg')">
                 <img src="KM.jpg" alt="Kayla Montes">
             </div>
-            <div class="grid-item" onclick="openModal('Carlos Morales', 'Northwestern University', 'Public Policy & Administration','Stanford ILLCF@gmail.com', 'ILLCF job', 'CM.jpg')">
+            <div class="grid-item" onclick="openModal('Carlos Morales', 'Northwestern University', 'Public Administration','Stanford ILLCF@gmail.com', 'ILLCF job', 'CM.jpg')">
                 <img src="CM.jpg" alt="Carlos Morales">
             </div>
             <div class="grid-item" onclick="openModal('Jay Campos', 'University of Illinois Chicago', 'Criminology, Law, & Justice','Stanford ILLCF@gmail.com', 'ILLCF job', 'JC.jpg')">
@@ -330,16 +184,16 @@
             <div class="grid-item" onclick="openModal('Veronica Gebbia', 'University of Illinois Chicago', 'Chemical Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'VG.jpg')">
                 <img src="VG.jpg" alt="Veronica Gebbia">
             </div>
-            <div class="grid-item" onclick="openModal('Madeline Silva', 'Harvard University', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'MS.jpg')">
+            <div class="grid-item" onclick="openModal('Madeline Silva', 'Morton College', 'Aerospace Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'MS.jpg')">
                 <img src="MS.jpg" alt="Madeline Silva">
             </div>
-            <div class="grid-item" onclick="openModal('Diana Mendoza-Vazquez', 'Harvard University', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'DMV.jpg')">
+            <div class="grid-item" onclick="openModal('Diana Mendoza-Vazquez', 'Dominican University', 'Neurobiology','Stanford ILLCF@gmail.com', 'ILLCF job', 'DMV.jpg')">
                 <img src="DMV.jpg" alt="Diana Mendoza-Vazquez">
             </div>
-            <div class="grid-item" onclick="openModal('Axel Hernandez', 'Harvard University', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'AH.jpg')">
+            <div class="grid-item" onclick="openModal('Axel Hernandez', 'Loyola University Chicago', 'Finance & Management','Stanford ILLCF@gmail.com', 'ILLCF job', 'AH.jpg')">
                 <img src="AH.jpg" alt="Axel Hernandez">
             </div>
-            <div class="grid-item" onclick="openModal('Edgar Vilchez', 'Cornell University', 'Political Science & Government','Stanford ILLCF@gmail.com', 'ILLCF job', 'EV.jpg')">
+            <div class="grid-item" onclick="openModal('Edgar Vilchez', 'Cornell University', 'Government','Stanford ILLCF@gmail.com', 'ILLCF job', 'EV.jpg')">
                 <img src="EV.jpg" alt="Edgar Vilchez">
             </div>
             <div class="grid-item" onclick="openModal('Evelin Solis', 'Indiana University Indianapolis', 'Forensic & Investigative Sciences','Stanford ILLCF@gmail.com', 'ILLCF job', 'ES.jpg')">
@@ -348,26 +202,162 @@
             <div class="grid-item" onclick="openModal('Arianna Perez', 'Illinois Institute of Technology', 'Computer & Cybersecurity Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'AP.jpg')">
                 <img src="AP.jpg" alt="Arianna Perez">
             </div>
-            <div class="grid-item" onclick="openModal('Laura Padilla', 'Loyola University', 'Juris Doctor','Stanford ILLCF@gmail.com', 'ILLCF job', 'LP.jpg')">
+            <div class="grid-item" onclick="openModal('Laura Padilla', 'Loyola University Chicago', 'Law','Stanford ILLCF@gmail.com', 'ILLCF job', 'LP.jpg')">
                 <img src="LP.jpg" alt="Laura Padilla">
             </div>
-            <div class="grid-item" onclick="openModal('Ambar Medrano Jimenez', 'University of Illinois Urbana-Champaign', 'Finance','Stanford ILLCF@gmail.com', 'ILLCF job', 'AMJ.jpg')">
+            <div class="grid-item" onclick="openModal('Ambar Medrano Jimenez', 'University of Illinois Urbana-Champaign', 'Supply Chain Management','Stanford ILLCF@gmail.com', 'ILLCF job', 'AMJ.jpg')">
                 <img src="AMJ.jpg" alt="Ambar Medrano Jimenez">
             </div>
             <div class="grid-item" onclick="openModal('Ireri Miranda-Gonzalez', 'Aurora University', 'Psychology','Stanford ILLCF@gmail.com', 'ILLCF job', 'IMG.jpg')">
                 <img src="IMG.jpg" alt="Ireri Miranda-Gonzalez">
             </div>
-            <div class="grid-item" onclick="openModal('Ruben Mariquez', 'University of Illinois Urbana-Champaign', 'Information Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'RM.jpg')">
+            <div class="grid-item" onclick="openModal('Ruben Mariquez', 'University of Illinois Urbana-Champaign', 'Financial Planning','Stanford ILLCF@gmail.com', 'ILLCF job', 'RM.jpg')">
                 <img src="RM.jpg" alt="Ruben Mariquez">
             </div>
             <div class="grid-item" onclick="openModal('Virnaliz Jimenez', 'University of Illinois Urbana-Champaign', 'Human Development & Family Studies','Stanford ILLCF@gmail.com', 'ILLCF job', 'VJ.jpg')">
                 <img src="VJ.jpg" alt="Virnaliz Jimenez">
             </div>
-            <div class="grid-item" onclick="openModal('Lizbeth Ramos', 'Eastern Illinois University', 'Kinesiology & Exercise Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'LRR.jpg')">
+            <div class="grid-item" onclick="openModal('Lizbeth Ramos', 'Eastern Illinois University', 'Exercise Science Pre-PT','Stanford ILLCF@gmail.com', 'ILLCF job', 'LRR.jpg')">
                 <img src="LRR.jpg" alt="Lizbeth Ramos">
             </div>
         </div>
 
+        <h2>2023 Scholarship Recipients</h2>
+        <div class="members-row">
+            <!-- 5 Eric profiles in first row -->
+            <div class="grid-item" onclick="openModal('Deniss Lujan Guerrero', 'University of Illinois Chicago', 'Nursing','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Deniss Lujan Guerrero">
+            </div>
+            <div class="grid-item" onclick="openModal('Elizabeth Ramirez', 'University of Illinois Chicago', 'Finance','Stanford ILLCF@gmail.com', 'ILLCF job', 'ER.jpg')">
+                <img src="ER.jpg" alt="Elizabeth Ramirez">
+            </div>
+            <div class="grid-item" onclick="openModal('Rodolfo Juarez', 'University of Illinois Urbana-Champaign', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'RJ.jpg')">
+                <img src="RJ.jpg" alt="Rodolfo Juarez">
+            </div>
+            <div class="grid-item" onclick="openModal('Christian Malagon-Bravo', 'Lewis Univeristy', 'Management','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Christian Malagon-Bravo">
+            </div>
+            <div class="grid-item" onclick="openModal('Alejandra Sotelo', 'Loyola University Chicago', 'Political Science & Criminal Justice','Stanford ILLCF@gmail.com', 'ILLCF job', 'AS.jpg')">
+                <img src="AS.jpg" alt="Alejandra Sotelo">
+            </div>
+            <div class="grid-item" onclick="openModal('Serafin Patino', 'Carleton College', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'SRP.jpg')">
+                <img src="SRP.jpg" alt="Serafin Patino">
+            </div>
+            <div class="grid-item" onclick="openModal('Victoria Esparza', 'University of California Berkeley', 'Juris Doctor','Stanford ILLCF@gmail.com', 'ILLCF job', 'VE.jpg')">
+                <img src="VE.jpg" alt="Victoria Esparza">
+            </div>
+            <div class="grid-item" onclick="openModal('Stephanie Pedroza', 'University of Illinois Urbana-Champaign', 'Finance and Data Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'SP.jpg')">
+                <img src="SP.jpg" alt="Stephanie Pedroza">
+            </div>
+            <div class="grid-item" onclick="openModal('Daniela Pule', 'University of Illinois Urbana-Champaign', 'Kinesiology','Stanford ILLCF@gmail.com', 'ILLCF job', 'DP.jpg')">
+                <img src="DP.jpg" alt="Daniela Pule">
+            </div>
+            <div class="grid-item" onclick="openModal('Mónica Ruiz', 'University of Chicago', 'Latino Studies, Sociology, & Spanish','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Mónica Ruiz">
+            </div>
+            <div class="grid-item" onclick="openModal('Juan Hernandez', 'VanderCook College of Music', 'Music Education & Performance','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Juan Hernandez">
+            </div>
+            <div class="grid-item" onclick="openModal('Maria Borerro', 'Northeastern Illinois University', 'Masters Degree in Higher Education','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Maria Borerro">
+            </div>
+            <div class="grid-item" onclick="openModal('Arantxa Sanchez', 'Medical College of Wisconsin', 'Doctor of Medicine (MD)','Stanford ILLCF@gmail.com', 'ILLCF job', 'AS23.jpg')">
+                <img src="AS23.jpg" alt="Arantxa Sanchez">
+            </div>
+            <div class="grid-item" onclick="openModal('Kathy Colin', 'University of Richmond', 'Chemistry','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Kathy Colin">
+            </div>
+            <div class="grid-item" onclick="openModal('Pamela Fullerton', 'Governors State University', 'Counselor Education and Supervision','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Pamela Fullerton">
+            </div>
+            <div class="grid-item" onclick="openModal('Jonathan Montoya', 'Southern Illinois University Carbondale', 'Nursing','Stanford ILLCF@gmail.com', 'ILLCF job', 'JP.jpg')">
+                <img src="PF.jpg" alt="Jonathan Montoya">
+            </div>
+            <div class="grid-item" onclick="openModal('Olivia Marquiis', 'Brandeis University', 'Biology','Stanford ILLCF@gmail.com', 'ILLCF job', 'ILLCFLogo.png')">
+                <img src="ILLCFLogo.png" alt="Olivia Marquiis">
+            </div>
+            <div class="grid-item" onclick="openModal('Leticia Diaz Leon', 'University of Illinois Chicago', 'Epidemiology','Stanford ILLCF@gmail.com', 'ILLCF job', 'LDL.jpg')">
+                <img src="LDL.jpg" alt="Leticia Diaz Leon">
+            </div>
+            <div class="grid-item" onclick="openModal('Jennifer Torres', 'University of Illinois Chicago', 'English','Stanford ILLCF@gmail.com', 'ILLCF job', 'JT.jpg')">
+                <img src="JT.jpg" alt="Jennifer Torres">
+            </div>
+            <div class="grid-item" onclick="openModal('Ada Velazquez', 'William Rainey Harper College', 'Nursing','Stanford ILLCF@gmail.com', 'ILLCF job', 'AV.jpg')">
+                <img src="AV.jpg" alt="Ada Velazquez">
+            </div>
+        </div>
+
+        <h2>2022 Scholarship Recipients</h2>
+        <div class="members-row">
+            <!-- 5 Eric profiles in first row -->
+            <div class="grid-item" onclick="openModal('Anely Lopez', 'Saint Xavier University', 'Electrical Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'AL.jpg')">
+                <img src="AL.jpg" alt="Anely Lopez">
+            </div>
+            <div class="grid-item" onclick="openModal('Taylor Lane', 'University of Illinois Chicago', 'Political Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'TL.jpg')">
+                <img src="TL.jpg" alt="Taylor Lane">
+            </div>
+            <div class="grid-item" onclick="openModal('Moises Arreola-Malagon', 'Lake Forest College', 'Political Science & Government','Stanford ILLCF@gmail.com', 'ILLCF job', 'MA.jpg')">
+                <img src="MA.jpg" alt="Moises Arreola-Malagon">
+            </div>
+            <div class="grid-item" onclick="openModal('Jessica Molinar', 'Governors State University', 'Accounting','Stanford ILLCF@gmail.com', 'ILLCF job', 'JM.jpg')">
+                <img src="JM.jpg" alt="Jessica Molinar">
+            </div>
+            <div class="grid-item" onclick="openModal('Jasmine Reyes', 'Illinois Wesleyan University', 'Public Administration','Stanford ILLCF@gmail.com', 'ILLCF job', 'JR.jpg')">
+                <img src="JR.jpg" alt="Jasmine Reyes">
+            </div>
+            <div class="grid-item" onclick="openModal('Diana Camarillo', 'University of Massachusetts Amherst', 'Criminology, Law, & Justice','Stanford ILLCF@gmail.com', 'ILLCF job', 'DC.jpg')">
+                <img src="DC.jpg" alt="Diana Camarillo">
+            </div>
+            <div class="grid-item" onclick="openModal('Cindy Gabriela Duran', 'Northern Illinois University', 'Communication','Stanford ILLCF@gmail.com', 'ILLCF job', 'CD.jpg')">
+                <img src="CD.jpg" alt="Cindy Gabriela Duran">
+            </div>
+            <div class="grid-item" onclick="openModal('Margarita Sanchez', 'University of Illinois Urbana-Champaign', 'Chemical Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'MSS.jpg')">
+                <img src="MSS.jpg" alt="Margarita Sanchez">
+            </div>
+            <div class="grid-item" onclick="openModal('Alexandra Alcantar', 'Northern Illinois University', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'AA.jpg')">
+                <img src="AA.jpg" alt="Alexandra Alcantar">
+            </div>
+            <div class="grid-item" onclick="openModal('Yudany Lizbeth Diaz', 'University of Illinois Urbana-Champaign', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'YD.JPG')">
+                <img src="YD.JPG" alt="Yudany Lizbeth Diaz">
+            </div>
+            <div class="grid-item" onclick="openModal('Nahara Abigail Escalante Bustillo', 'University of Illinois Chicago', 'Computer Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'NB.jpg')">
+                <img src="NB.jpg" alt="Nahara Abigail Escalante Bustillo">
+            </div>
+            <div class="grid-item" onclick="openModal('Nicole Mendez-Villarrubia', 'North Central College', 'Political Science & Government','Stanford ILLCF@gmail.com', 'ILLCF job', 'NM.JPG')">
+                <img src="NM.JPG" alt="Nicole Mendez-Villarrubia">
+            </div>
+            <div class="grid-item" onclick="openModal('Dianiela Morelos', 'University of Illinois Urbana-Champaign', 'Forensic & Investigative Sciences','Stanford ILLCF@gmail.com', 'ILLCF job', 'DM.jpg')">
+                <img src="DM.jpg" alt="Dianiela Morelos">
+            </div>
+            <div class="grid-item" onclick="openModal('Julian Cronin', 'Brown University', 'Computer & Cybersecurity Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'JCA.PNG')">
+                <img src="JCH.PNG" alt="Julian Cronin">
+            </div>
+            <div class="grid-item" onclick="openModal('Saul Manon-Arellano', 'Northeastern Illinois University', 'Juris Doctor','Stanford ILLCF@gmail.com', 'ILLCF job', 'SMA.jpg')">
+                <img src="SMA.jpg" alt="Saul Manon-Arellano">
+            </div>
+            <div class="grid-item" onclick="openModal('Naomi Esquivel', 'University of Illinois Urbana-Champaign', 'Finance','Stanford ILLCF@gmail.com', 'ILLCF job', 'NE.jpg')">
+                <img src="NE.jpg" alt="Naomi Esquivel">
+            </div>
+            <div class="grid-item" onclick="openModal('Jazmine J. Saavedra', 'University of Illinois Urbana-Champaign', 'Psychology','Stanford ILLCF@gmail.com', 'ILLCF job', 'JS.jpg')">
+                <img src="JS.jpg" alt="Jazmine J. Saavedra">
+            </div>
+            <div class="grid-item" onclick="openModal('Karina Rodriguez', 'Loyola University Chicago', 'Information Science','Stanford ILLCF@gmail.com', 'ILLCF job', 'KR.jpg')">
+                <img src="KR.jpg" alt="Karina Rodriguez">
+            </div>
+            <div class="grid-item" onclick="openModal('Enrique Garcia', 'Ursinus College', 'Human Development & Family Studies','Stanford ILLCF@gmail.com', 'ILLCF job', 'EG.png')">
+                <img src="EG.png" alt="Enrique Garcia">
+            </div>
+            <div class="grid-item" onclick="openModal('Cindy Laureano Martinez', 'National Louis University', 'Kinesiology','Stanford ILLCF@gmail.com', 'ILLCF job', 'CLM.png')">
+                <img src="CLM.png" alt="Cindy Laureano Martinez">
+            </div>
+        </div>
+
+        <h2>2011 Scholarship Recipients</h2>
+        <div class="members-row">
+            <div class="grid-item" onclick="openModal('Jesus Alquicira', 'University of Illinois Chicago', 'Civil Engineering','Stanford ILLCF@gmail.com', 'ILLCF job', 'JA.jpeg')">
+                <img src="JA.jpeg" alt="Jesus Alquicira">
+            </div>
+        </div>
 
         <!-- Modal (Popup) -->
         <div id="modal" class="modal">
@@ -383,89 +373,36 @@
         </div>
     </div>
 
-    <script>
-        function openModal(name, school, major, email = '', job = '', imageSrc) {
-            // Create modal HTML dynamically if it doesn't already exist
-            let existingModal = document.getElementById("profileModal");
-            if (existingModal) existingModal.remove(); // Clean up old modals
-        
-            const modal = document.createElement("div");
-            modal.className = "modal";
-            modal.id = "profileModal";
-            modal.innerHTML = `
-                <span class="close" onclick="document.getElementById('profileModal').remove()">×</span>
-                <div class="modal-content">
-                    <img src="${imageSrc}" alt="${name}">
-                    <h2>${name}</h2>
-                    <p><strong>University:</strong> ${school}</p>
-                    <p><strong>Major:</strong> ${major}</p>
-                    ${email ? `<p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>` : ''}
-                    ${job ? `<p><strong>Job:</strong> ${job}</p>` : ''}
-                </div>
-            `;
-            document.body.appendChild(modal);
-            modal.style.display = "flex";
-        }
-        
-        // Password logic
-        function checkPassword() {
-            const correctPassword = "123"; // Replace with your actual password
-            const input = document.getElementById("passwordInput").value;
-            const screen = document.getElementById("passwordScreen");
-            const content = document.getElementById("content");
-            const error = document.getElementById("errorMessage");
-        
-            if (input === correctPassword) {
-                screen.style.display = "none";
-                content.style.display = "block";
-            } else {
-                error.textContent = "Incorrect password. Please try again.";
-            }
-        }
-        </script>
-        
+    <!-- Footer Section - Beige Bar -->
+    <footer>
+        <div class="footer-content">
+            <!-- Left Column -->
+            <div>
+                <h3>ILLCF</h3>
+                <ul>
+                    <li><a href="https://www.illcfoundation.org">HOME</a></li>
+                    <li><a href="https://www.illcfoundation.org/history">WHAT WE DO</a></li>
+                    <li><a href="https://www.illcfoundation.org/contact">CONTACT</a></li>
+                </ul>
+            </div>
+            
+            <!-- Middle Column -->
+            <div>
+                <h3>PRESS</h3>
+                <ul>
+                    <li><a href="https://www.illcfoundation.org/about-us">ABOUT</a></li>
+                    <li><a href="https://www.illcfoundation.org/events">EVENTS</a></li>
+                </ul>
+            </div>
+            
+            <!-- Right Column (Address) -->
+            <div class="footer-address">
+                <p>320 S. CANAL STREET SUITE 3300</p>
+                <p>MAIL: INFO@ILLCFOUNDATION.ORG</p>
+            </div>
+        </div>
+    </footer>
 
-<!-- Footer Section - Beige Bar -->
-<footer style="
-    background-color: #f1ede8;
-    color: #333;
-    padding: 40px 20px;
-    margin-top: 50px;
-    font-family: Arial, sans-serif;
-    border-top: 1px solid #ddd;
-">
-    <div style="
-        max-width: 800px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    ">
-        <!-- Left Column -->
-        <div>
-            <h3 style="margin-bottom: 15px; font-size: 18px; color: #2a6496;">ILLCF</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><a href="#" style="color: #333; text-decoration: none;">HOME</a></li>
-                <li><a href="#" style="color: #333; text-decoration: none;">WHAT WE DO</a></li>
-                <li><a href="#" style="color: #333; text-decoration: none;">CONTACT</a></li>
-            </ul>
-        </div>
-        
-        <!-- Right Column -->
-        <div>
-            <h3 style="margin-bottom: 15px; font-size: 18px; color: #2a6496;">PRESS</h3>
-            <ul style="list-style: none; padding: 0; line-height: 2;">
-                <li><a href="#" style="color: #333; text-decoration: none;">ABOUT</a></li>
-                <li><a href="#" style="color: #333; text-decoration: none;">EVENTS</a></li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- Address and Email (Centered Below) -->
-    <div style="margin: 40px 0 0 0; text-align: center; color: #666;">
-        <p>320 S. CANAL STREET SUITE 3300</p>
-        <p>MAIL: INFO@ILLCFOUNDATION.ORG</p>
-    </div>
-</footer>
+    <script src="script.js"></script>
 </body>
 </html>
